@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package org.grpc_server.proto;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "messages/employee_profile.proto";
+
+service EmployeeService {
+
+  rpc GetEmployee (google.protobuf.Int64Value) returns (EmployeeProfile) {}
+
+  rpc AddEmployee (EmployeeProfile) returns (EmployeeProfile) {}
+
+  rpc DeleteEmployee (google.protobuf.Int64Value) returns (google.protobuf.BoolValue) {}
+
+  rpc ClientStream (stream EmployeeProfile) returns (google.protobuf.Empty) {}
+
+  rpc ServerStream (google.protobuf.Empty) returns (stream EmployeeProfile) {}
+
+  rpc BiDirectionalStream (stream EmployeeProfile) returns (stream EmployeeProfile) {}
+
+}

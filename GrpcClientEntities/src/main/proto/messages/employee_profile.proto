@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package org.grpc_server.proto;
+
+option java_multiple_files = true;
+
+message EmployeeProfile {
+  int64 employee_id = 1;
+  string employee_name = 2;
+}
+
+message EmployeeError {
+  string description = 1;
+}
